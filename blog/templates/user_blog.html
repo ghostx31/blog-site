@@ -1,0 +1,171 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://kit.fontawesome.com/21f148cdb3.js" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/user-blog_style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>User Blog</title>
+  </head>
+  <body onload="loadingfunction()">
+    <div id="loading"></div>
+    <!-- =================nav bar================== -->
+    <div class="navbar" id="myTopnav">
+      <a href="index.html" class="logo"><img src="{% static 'images/logo1.png' %}" style="width: 100%"></a>
+      <a href="javascript:void(0);" class="icon" onclick="Function()"><i class="fa fa-bars"></i></a>
+      <button onclick="myFunction()"><i class="fas fa-adjust"></i></button>
+      <a href="contactus.html">Contact</a>
+      <a href="aboutus.html">About Us</a>
+      <form class="example" action="#">
+        <input type="text" placeholder="Search for blog..." name="search bar">
+        <button type="submit"><i class="fa fa-search"></i></button>
+      </form>
+    </div>
+    <!-- ====================card========================= -->
+    <div class="row">
+      <!-- ===================filter==================== -->
+      <div class="filterleftside">
+        <div>
+          <a class="btn" href="/user/profile"> Profile</a>
+          <a class="btn active1" href="user_blog.html"> My Blogs</a>
+          <a class="btn" href="/user/favourites"> Favourites</a>
+        </div>
+        <h2 style="text-align: center;">Filter's</h2>
+          <div id="myBtnContainer">
+            <button class="btn active" onclick="filterSelection('all')"> Show all</button>
+            <h3 style="text-align: center;">Topic</h3>
+            <button class="btn" onclick="filterSelection('tech')"> Technology</button>
+            <button class="btn" onclick="filterSelection('math')"> Mathematics</button>
+            <button class="btn" onclick="filterSelection('social')"> Social Media</button>
+            <h3 style="text-align: center;">Language</h3>
+            <button class="btn" onclick="filterSelection('english')"> English</button>
+            <button class="btn" onclick="filterSelection('other')"> Other Language</button>
+          </div>
+      </div>
+
+      <div class="rightcolumn">
+        <div class="card">
+          <div class="row2">
+            <h3 style="text-align: center;">Your Blogs</h3>
+            <div class="column2 filterDiv english tech">
+              <div class="card2">
+                <img src="{% static 'images/2.jpg' %}" alt="Avatar" style="width:100%">
+                <div class="container">
+                  <h4><b>Blog Heading</b></h4>
+                  <p>Some intro of blog</p>
+                </div>
+                <a href="blog.html">Read Full</a>
+              </div>
+            </div>
+
+            <div class="column2 filterDiv other math">
+              <div class="card2">
+                <img src="{% static 'images/2.jpg' %}" alt="Avatar" style="width:100%">
+                <div class="container">
+                  <h4><b>Blog Heading</b></h4>
+                  <p>Some intro of blog</p>
+                </div>
+                <a href="blog.html">Read Full</a>
+              </div>
+            </div>
+  
+            <div class="column2 filterDiv english social">
+              <div class="card2">
+                <img src="{% static 'images/2.jpg' %}" alt="Avatar" style="width:100%">
+                <div class="container">
+                  <h4><b>Blog Heading</b></h4>
+                  <p>Some intro of blog</p>
+                </div>
+                <a href="blog.html">Read Full</a>
+              </div>
+            </div>
+  
+            <div class="column2 filterDiv other tech">
+              <div class="card2">
+                <img src="{% static 'images/2.jpg' %}" alt="Avatar" style="width:100%">
+                <div class="container">
+                  <h4><b>Blog Heading</b></h4>
+                  <p>Some intro of blog</p>
+                </div>
+                <a href="blog.html">Read Full</a>
+              </div>
+            </div>
+
+            <div class="column2 filterDiv english math">
+              <div class="card2">
+                <img src="{% static 'images/2.jpg' %}" alt="Avatar" style="width:100%">
+                <div class="container">
+                  <h4><b>Blog Heading</b></h4>
+                  <p>Some intro of blog</p>
+                </div>
+                <a href="blog.html">Read Full</a>
+              </div>
+            </div>
+
+            <div class="column2 filterDiv other social">
+              <div class="card2">
+                <img src="{% static 'images/2.jpg' %}" alt="Avatar" style="width:100%">
+                <div class="container">
+                  <h4><b>Blog Heading</b></h4>
+                  <p>Some intro of blog</p>
+                </div>
+                <a href="blog.html">Read Full</a>
+              </div>
+            </div>
+
+            <div class="column2 filterDiv english tech">
+              <div class="card2">
+                <img src="{% static 'images/2.jpg' %}" alt="Avatar" style="width:100%">
+                <div class="container">
+                  <h4><b>Blog Heading</b></h4>
+                  <p>Some intro of blog</p>
+                </div>
+                <a href="blog.html">Read Full</a>
+              </div>
+            </div>
+
+            <div class="column2 filterDiv other social">
+              <div class="card2">
+                <img src="{% static 'images/2.jpg' %}" alt="Avatar" style="width:100%">
+                <div class="container">
+                  <h4><b>Blog Heading</b></h4>
+                  <p>Some intro of blog</p>
+                </div>
+                <a href="blog.html">Read Full</a>
+              </div>
+            </div>
+
+          </div><!-- row2 -->
+          <!-- ==================pagination=================== -->
+          <div class="pagination">
+            <a href="#">&laquo;</a>
+            <a class="active" href="#1">1</a>
+            <a href="#2">2</a>
+            <a href="#3">3</a>
+            <a href="#4">4</a>
+            <a href="#5">5</a>
+            <a href="#6">6</a>
+            <a href="#">&raquo;</a>
+          </div>
+
+        </div>
+      </div>  
+    </div>
+    <!-- ===============footer====================== -->
+    <div class="footer" >
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      <a href="#"><i class="fas fa-at"></i></a>
+      <a href="#"><i class="fab fa-whatsapp"></i></a>
+      <h5>&copy; <script>document.write(new Date().getFullYear())</script> blogsite, Inc. All rights reserved.</h5>
+    </div>
+
+    <script src="{% static 'js/user_blog_script.js' %}"></script>
+    <!-- ======================go to top==================== -->
+    <a class="gotopbtn" href="#"> <i class="fas fa-arrow-up"></i> </a>
+
+  </body>
+</html>

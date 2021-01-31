@@ -1,0 +1,84 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://kit.fontawesome.com/21f148cdb3.js" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/create_new_style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>User Favourites</title>
+  </head>
+  <body onload="loadingfunction()">
+    <div id="loading"></div>
+    <!-- =================nav bar================== -->
+    <div class="navbar" id="myTopnav">
+      <a href="index.html" class="logo"><img src="{% static 'images/logo1.png' %}" style="width: 100%"></a>
+      <a href="javascript:void(0);" class="icon" onclick="Function()"><i class="fa fa-bars"></i></a>
+      <button onclick="myFunction()"><i class="fas fa-adjust"></i></button>
+      <a href="/contact">Contact</a>
+      <a href="/about">About Us</a>
+      <form class="example" action="/user/blog" method="post">
+        <input type="text" placeholder="Search for blog..." name="search bar">
+        <button type="submit"><i class="fa fa-search"></i></button>
+      </form>
+    </div>
+    <!-- ====================card========================= -->
+    <div class="row">
+      <!-- ===================filter==================== -->
+      <div class="filterleftside">
+        <div>
+          <a class="btn" href="/user/profile"> Profile</a>
+          <a class="btn" href="/user/blogs/"> My Blogs</a>
+          <a class="btn" href="/user/favourites/"> Favourites</a>
+        </div>
+      </div>  
+        <div class="container">
+          <h3 style="text-align: center;">Share Your Thoughts Through A Blog</h3>
+          <div class="container1">
+            <form name="title" method="post">
+              <div class="row2">
+                 <div class="col-25">
+                    <label for="title">Title</label>
+                  </div>
+                  <div class="col-75">
+                    <input type="text" id="title" name="title" placeholder="Write title of the blog">
+                  </div>
+                </div>
+            </form>
+          </div>
+          <textarea name="editor" ></textarea>
+          	<form method="post">
+              {% csrf_token %}
+          		<div class="row2">
+                <div class="col-25">
+                  <label for="topic">Tags</label>
+                </div>
+                <div class="col-75">
+                  <input type="text" id="topic" name="topic" placeholder="eg: technology , social , mathematics">
+                  <input type="submit">
+                </div>
+              </div>
+            </form>
+        </div>
+    </div>
+    <!-- ===============footer====================== -->
+    <div class="footer" >
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      <a href="#"><i class="fas fa-at"></i></a>
+      <a href="#"><i class="fab fa-whatsapp"></i></a>
+      <h5>&copy; <script>document.write(new Date().getFullYear())</script> blogsite, Inc. All rights reserved.</h5>
+    </div>
+
+    <script src="{% static 'js/create_new_script.js' %}"></script>
+    <!-- ======================go to top==================== -->
+    <a class="gotopbtn" href="#"> <i class="fas fa-arrow-up"></i> </a>
+    <script src="{% static 'plugins/ckeditor/ckeditor.js' %}"></script>
+    <script>
+      CKEDITOR.replace('editor');
+    </script>
+  </body>
+</html>

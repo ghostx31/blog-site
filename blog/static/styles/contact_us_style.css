@@ -1,0 +1,382 @@
+@import url('https://fonts.googleapis.com/css?family=Hind:300,400');
+*, *:before, *:after {
+  -webkit-box-sizing: inherit;
+  box-sizing: border-box;
+}
+body {
+  font-family: Arial;
+  background: white;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  padding-bottom: 91.78px;
+  min-height: 100vh;
+}
+/*=========dark mode============*/
+.dark-mode {
+  background-color: black;
+  color: white;
+}
+/*=================navbar====================*/
+.navbar {
+  overflow: hidden;
+  background-color:white;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 50;
+}
+.navbar button{
+  float: right;
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 10px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  border: 0 transparent;
+  background-color: transparent;
+  border-radius: 5px;
+}
+.navbar button:hover{
+  background: black;
+  color: white;
+}
+.navbar a {
+  float: right;
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 10px 16px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 17px;
+}
+.navbar a:hover {
+  background: black;
+  color: white;
+}
+.navbar .logo{
+  float: left;
+  padding: 0;
+  border: 0;
+  border-radius: 5px;
+}
+.navbar .logo:hover{
+  background-color: white;
+  color: black;
+}
+.navbar .logo img{
+  width: 100%;
+  height: 50PX;
+}
+.navbar .icon {
+  display: none;
+}
+/*========responsive nav bar===================*/
+@media screen and (max-width: 830px) {
+  .navbar a:not(:first-child) {display: none;}
+  .navbar a.icon {
+    float: right;
+    display: block;
+    width: 20%;
+  }
+  .navbar .logo{
+    width: 50%;
+  }
+}
+@media screen and (max-width: 830px) {
+  .navbar.responsive {position: relative;}
+  .navbar.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .navbar.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+}
+/*=================search bar===================*/
+form.example {
+  margin:auto;
+  max-width:25vw;
+}
+form.example input[type=text] {
+  padding: 10px;
+  font-size: 17px;
+  border: 1px transparent;
+  border-bottom: 1px black;
+  float: left;
+  width: 80%;
+  background: white;
+}
+form.example button {
+  float: left;
+  width: 20%;
+  padding: 10px;
+  background: white;
+  color: black;
+  font-size: 17px;
+  border: 1px transparent;
+  border-left: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+form.example button : hover {
+  background: black;
+  color: white;
+}
+form.example::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+@media screen and (max-width: 1270px){
+ .navbar .example {
+    float: none;
+    display: block;
+    text-align: left;
+    width: 100%;
+    margin: 0;
+    padding: 14px;
+    max-width: 100%
+  }
+  .navbar input[type=text] {
+    border: 1px solid #ccc;  
+  }
+}
+/*===========back to top============*/
+.gotopbtn{
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  background: black;
+  bottom: 20px;
+  right: 20px;
+  border-radius: 50%;
+  text-decoration: none;
+  text-align: center;
+  line-height: 50px;
+  color: white;
+  font-size: 22px;
+}
+html{
+  scroll-behavior: smooth;
+}
+/*======================cards styling starts===============*/
+.row{
+  padding: 20px;
+  /*background-color: blue;*/
+  margin-top: 60px;
+}
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+@media screen and (max-width: 1270px) {
+  .row{
+    margin-top: 90px;
+  }
+}
+.leftcolumn {   
+  float: left;
+  width: 100%;
+}
+@media screen and (max-width: 800px) {
+  .leftcolumn{   
+    width: 100%;
+    padding: 0;
+  }
+}
+/*============feedback form==============*/
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+input[type=email], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+.container {
+  border-radius: 5px;
+  background-color:transparent;
+  padding: 20px;
+}
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+.row2:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+@media screen and (max-width: 600px) {
+  .col-25, .col-75, input[type=submit] {
+    width: 100%;
+    margin-top: 0;
+  }
+}
+/*===============FAQ================*/
+.container2 {
+  margin: 0 auto;
+  padding: 4rem;
+  width: 48rem;
+}
+@media screen and (max-width: 700px) {
+  .container2{
+    width: 35rem;
+    padding: 2rem;
+  }
+}
+@media screen and (max-width: 580px) {
+  .container2{
+    margin-bottom: 100px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .container2{
+    width: 25rem;
+    padding: 1rem;
+  }
+}
+@media screen and (max-width: 370px) {
+  .container2{
+    width: 15rem;
+  }
+}
+h3 {
+  font-size: 1.75rem;
+  color: #373d51;
+  padding: 1.3rem;
+  margin: 0;
+}
+.accordion a {
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 100%;
+  padding: 1rem 3rem 1rem 1rem;
+  color: #7288a2;
+  font-size: 1.15rem;
+  font-weight: 400;
+  border-bottom: 1px solid #e5e5e5;
+}
+.accordion a:hover,
+.accordion a:hover::after {
+  cursor: pointer;
+  color: #ff5353;
+}
+.accordion a:hover::after {
+  border: 1px solid #ff5353;
+}
+.accordion a.active {
+  color: #ff5353;
+  border-bottom: 1px solid #ff5353;
+}
+.accordion a::after {
+  font-family: 'Ionicons';
+  content: '\f218';
+  position: absolute;
+  float: right;
+  right: 1rem;
+  font-size: 1rem;
+  color: #7288a2;
+  padding: 5px;
+  width: 30px;
+  height: 30px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  border: 1px solid #7288a2;
+  text-align: center;
+}
+.accordion a.active::after {
+  font-family: 'Ionicons';
+  content: '\f209';
+  color: #ff5353;
+  border: 1px solid #ff5353;
+}
+.accordion .content {
+  opacity: 0;
+  padding: 0 1rem;
+  max-height: 0;
+  border-bottom: 1px solid #e5e5e5;
+  overflow: hidden;
+  clear: both;
+  -webkit-transition: all 0.2s ease 0.15s;
+  -o-transition: all 0.2s ease 0.15s;
+  transition: all 0.2s ease 0.15s;
+}
+.accordion .content p {
+  font-size: 1rem;
+  font-weight: 300;
+}
+.accordion .content.active {
+  opacity: 1;
+  padding: 1rem;
+  max-height: 100%;
+  -webkit-transition: all 0.35s ease 0.15s;
+  -o-transition: all 0.35s ease 0.15s;
+  transition: all 0.35s ease 0.15s;
+}
+/*======footer=================*/
+.footer {
+  padding: 20px;
+  text-align: right;
+  background: #ddd;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+.footer a{
+  float:left;
+  padding: 20px;
+  color: black;
+}
+@media screen and (max-width: 580px) {
+  .footer{
+    width: 100%;
+    text-align: center;
+  }
+  .footer a{width: 33%;}
+}

@@ -1,0 +1,165 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+    <script src="https://kit.fontawesome.com/21f148cdb3.js" crossorigin="anonymous"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="{% static 'styles/about_us_style.css' %}">
+    <link rel="stylesheet" href="{% static 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' %}">
+    <title>About Us</title>
+	</head>
+	<body>
+		<!-- ===============navbar====================== -->
+		<div class="navbar" id="myTopnav">
+      		<a href="index.html" class="logo"><img src="{% static 'images/logo1.png' %}" style="width: 100%"></a>
+      		<a href="javascript:void(0);" class="icon" onclick="Function()"><i class="fa fa-bars"></i></a>
+			<button onclick="myFunction()"><i class="fas fa-adjust"></i></button>
+			{% if user.is_authenticated %}
+			<a href="/user/profile">Sign In/Up</a>
+			{% else %}
+  			<a href="/login/login">Sign In/Up</a>
+			{% endif %}
+			{% if user.is_authenticated %}
+      		<a href="/create">Create Blog</a>
+			{% else %}
+			<a href="/login/login">Create Blog</a>
+			{% endif %}
+      		<a href="/contact">Contact</a>
+  			<a href="/">Home</a>
+      		<form class="example" action="#">
+      			<input type="text" placeholder="Search for blog..." name="search bar">
+      			<button type="submit"><i class="fa fa-search"></i></button>
+      		</form>
+		</div>
+		<!-- ==============================cards about us============================== -->
+		<div class="row">
+  			<div class="rightcolumn">
+    			<div class="card">
+      				<div class="row2">
+  						<div class="column2 ">
+    						<div class="card2">
+      							<img src="{% static 'images/img_avatar.png' %}" alt="Avatar" >
+                  				<div class="container">
+                    				<h4><b>Name</b></h4>
+                    				<p>Some info about that person</p>
+                    				<a href="#"><i class="fab fa-facebook"></i></a>
+      								      <a href="#"><i class="fab fa-instagram"></i></a>
+      								      <a href="#"><i class="fab fa-twitter"></i></a>
+      								      <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      								      <a href="#"><i class="fas fa-at"></i></a>
+      								      <a href="#"><i class="fab fa-whatsapp"></i></a>
+                  				</div>
+                    		</div>
+  						</div>
+  						<div class="column2 ">
+    						<div class="card2">
+      							<img src="{% static 'images/img_avatar.png' %}" alt="Avatar" >
+                  				<div class="container">
+                    				<h4><b>Name</b></h4>
+                    				<p>Some info about that person</p>
+                    				<a href="#"><i class="fab fa-facebook"></i></a>
+      								      <a href="#"><i class="fab fa-instagram"></i></a>
+      								      <a href="#"><i class="fab fa-twitter"></i></a>
+      								      <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      								      <a href="#"><i class="fas fa-at"></i></a>
+      								      <a href="#"><i class="fab fa-whatsapp"></i></a>
+                  				</div>
+                    		</div>
+  						</div>
+  						<div class="column2 ">
+    						<div class="card2">
+      							<img src="{% static 'images/img_avatar.png' %}" alt="Avatar" >
+                  				<div class="container">
+                    				<h4><b>Name</b></h4>
+                    				<p>Some info about that person</p>
+                    				<a href="#"><i class="fab fa-facebook"></i></a>
+      								      <a href="#"><i class="fab fa-instagram"></i></a>
+      								      <a href="#"><i class="fab fa-twitter"></i></a>
+      								      <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      								      <a href="#"><i class="fas fa-at"></i></a>
+      								      <a href="#"><i class="fab fa-whatsapp"></i></a>
+                  				</div>
+                    		</div>
+  						</div>
+  						<div class="column2 ">
+    						<div class="card2">
+      							<img src="{% static 'images/img_avatar2.png' %}" alt="Avatar" >
+                  				<div class="container">
+                    				<h4><b>Name</b></h4>
+                    				<p>Some info about that person</p>
+                    				<a href="#"><i class="fab fa-facebook"></i></a>
+      								      <a href="#"><i class="fab fa-instagram"></i></a>
+      								      <a href="#"><i class="fab fa-twitter"></i></a>
+      								      <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      								      <a href="#"><i class="fas fa-at"></i></a>
+      								      <a href="#"><i class="fab fa-whatsapp"></i></a>
+                  				</div>
+                    		</div>
+  						</div>
+  						<div class="column2 ">
+    						<div class="card2">
+      							<img src="{% static 'images/img_avatar.png' %}" alt="Avatar" >
+                  				<div class="container">
+                    				<h4><b>Name</b></h4>
+                    				<p>Some info about that person</p>
+                    				<a href="#"><i class="fab fa-facebook"></i></a>
+      								      <a href="#"><i class="fab fa-instagram"></i></a>
+      								      <a href="#"><i class="fab fa-twitter"></i></a>
+      								      <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      								      <a href="#"><i class="fas fa-at"></i></a>
+      								      <a href="#"><i class="fab fa-whatsapp"></i></a>
+                  				</div>
+                    		</div>
+  						</div>
+  						<div class="column2 ">
+    						<div class="card2">
+      							<img src="{% static 'images/img_avatar.png' %}" alt="Avatar" >
+                  				<div class="container">
+                    				<h4><b>Name</b></h4>
+                    				<p>Some info about that person</p>
+                    				<a href="#"><i class="fab fa-facebook"></i></a>
+      								      <a href="#"><i class="fab fa-instagram"></i></a>
+      								      <a href="#"><i class="fab fa-twitter"></i></a>
+      								      <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      								      <a href="#"><i class="fas fa-at"></i></a>
+      								      <a href="#"><i class="fab fa-whatsapp"></i></a>
+                  				</div>
+                    		</div>
+  						</div>
+  						<div class="column2 ">
+    						<div class="card2">
+      							<img src="{% static 'images/img_avatar.png' %}" alt="Avatar" >
+                  				<div class="container">
+                    				<h4><b>Name</b></h4>
+                    				<p>Some info about that person</p>
+                    				<a href="#"><i class="fab fa-facebook"></i></a>
+      								      <a href="#"><i class="fab fa-instagram"></i></a>
+      								      <a href="#"><i class="fab fa-twitter"></i></a>
+      								      <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      								      <a href="#"><i class="fas fa-at"></i></a>
+      								      <a href="#"><i class="fab fa-whatsapp"></i></a>
+                  				</div>
+                    		</div>
+  						</div>  
+					</div>
+				</div>
+    		</div>	
+  		</div>
+
+  			<!-- ======footer=================== -->
+			<div class="footer" >
+      			<a href="#"><i class="fab fa-facebook"></i></a>
+      			<a href="#"><i class="fab fa-instagram"></i></a>
+      			<a href="#"><i class="fab fa-twitter"></i></a>
+      			<a href="#"><i class="fab fa-linkedin-in"></i></a>
+      			<a href="#"><i class="fas fa-at"></i></a>
+      			<a href="#"><i class="fab fa-whatsapp"></i></a>
+  				<h5>&copy; <script>document.write(new Date().getFullYear())</script> blogsite, Inc. All rights reserved.</h5>
+			</div>
+
+		<script src="{% static 'js/about_us_script.js' %}"></script>
+		<!-- ==========back to top========================== -->
+		<a class="gotopbtn" href="#"> <i class="fas fa-arrow-up"></i> </a>
+
+	</body>
+<>

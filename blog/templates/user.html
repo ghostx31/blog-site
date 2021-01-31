@@ -1,0 +1,144 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://kit.fontawesome.com/21f148cdb3.js" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/user_style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>User Profile</title>
+  </head>
+  <body onload="loadingfunction()">
+    <div id="loading"></div>
+    <!-- =================nav bar================== -->
+    <div class="navbar" id="myTopnav">
+      <a href="index.html" class="logo"><img src="{% static 'images/logo1.png' %}" style="width: 100%"></a>
+      <a href="javascript:void(0);" class="icon" onclick="Function()"><i class="fa fa-bars"></i></a>
+      <button onclick="myFunction()"><i class="fas fa-adjust"></i></button>
+      <a href="/contact">Contact</a>
+      <a href="/about">About Us</a>
+      <form class="example" action="/search" method="get">
+        <input type="text" placeholder="Search for blog..." name="query" id="search">
+        <button type="submit"><i class="fa fa-search"></i></button>
+      </form>
+    </div>
+    <!-- ====================card========================= -->
+    <div class="row">
+
+      <div class="filterleftside">
+        <div>
+          <a class="btn active1"> Profile</a>
+          <a class="btn" href="/user/blogs/"> My Blogs</a>
+          <a class="btn" href="/user/favourites/"> Favourites</a>
+        </div>
+      </div>
+      <div class="leftcolumn">
+          <div class="container">
+            <h1>Personal Detail</h1>
+            <p><b>Lets Build Your Profile</b></p>
+            <form action="#" method="post">
+              {% csrf_token %}
+              <div class="row2">
+                <div class="col-25">
+                  <label for="fname">Profile Picture</label>
+                </div>
+                <div class="col-75">
+                  <input type="file" id="image" name="image" accept="image/*">
+                </div>
+              </div>
+              <div class="row2">
+                <div class="col-25">
+                  <label for="fname">First Name</label>
+                </div>
+                <div class="col-75">
+                  <input type="text" id="fname" name="firstname" placeholder="Your name..">
+                </div>
+              </div>
+              <div class="row2">
+                <div class="col-25">
+                  <label for="lname">Last Name</label>
+                </div>
+                <div class="col-75">
+                  <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+                </div>
+              </div>
+              <div class="row2">
+                <div class="col-25">
+                  <label for="email">E-mail</label>
+                </div>
+                <div class="col-75">
+                  <input type="email" id="email" name="email" placeholder="ex: myname@example.com">
+                </div>
+              </div>
+              <div class="row2">
+                <div class="col-25">
+                  <label for="linked-in">Linked-In</label>
+                </div>
+                <div class="col-75">
+                  <input type="text" id="linked-in" name="linkedin" placeholder="Enter your linked-in">
+                </div>
+              </div>
+              <div class="row2">
+                <div class="col-25">
+                  <label for="instagram">Instagram account</label>
+                </div>
+                <div class="col-75">
+                  <input type="text" id="instagram" name="instagram" placeholder="Enter your intagram account name">
+                </div>
+              </div>
+              <div class="row2">
+                <div class="col-25">
+                  <label for="twitter">Twitter Handle</label>
+                </div>
+                <div class="col-75">
+                  <input type="text" id="twitter" name="twitter" placeholder="Enter your twitter handle here">
+                </div>
+              </div>
+              <div class="row2">
+                <div class="col-25">
+                  <label for="facebook">Facebook</label>
+                </div>
+                <div class="col-75">
+                  <input type="text" id="facebook" name="facebook" placeholder="Enter your facebook account name">
+                </div>
+              </div>
+              <div class="row2">
+                <div class="col-25">
+                  <label for="hobby">Hobby</label>
+                </div>
+                <div class="col-75">
+                  <input type="text" id="hobby" name="hobby" placeholder="Write anything that you love to do">
+                </div>
+              </div>
+              <div class="row2">
+                <div class="col-25">
+                  <label for="subject">Describe yourself:</label>
+                </div>
+                <div class="col-75">
+                  <textarea id="subject" name="subject" placeholder="Write something about yourself in 50 words.." style="height:100px; width: 100%"></textarea>
+                </div>
+              </div>
+              <div class="row2">
+                <input type="submit" value="Submit">
+              </div>
+            </form>
+          </div>
+        </div>
+    </div>
+    <!-- ===============footer====================== -->
+    <div class="footer" >
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      <a href="#"><i class="fas fa-at"></i></a>
+      <a href="#"><i class="fab fa-whatsapp"></i></a>
+      <h5>&copy; <script>document.write(new Date().getFullYear())</script> blogsite, Inc. All rights reserved.</h5>
+    </div>
+
+    <script src="{% static 'js/user_script.js' %}"></script>
+    <!-- ======================go to top==================== -->
+    <a class="gotopbtn" href="#"> <i class="fas fa-arrow-up"></i> </a>
+
+  </body>
+</html>

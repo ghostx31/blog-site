@@ -1,0 +1,148 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://kit.fontawesome.com/21f148cdb3.js" crossorigin="anonymous"></script>
+    <link rel='stylesheet' href='https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css'>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/contact_us_style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Contact Us</title>
+  </head>
+  <body>
+    <!-- =======navbar============ -->
+    <div class="navbar" id="myTopnav">
+      <a href="index.html" class="logo"><img src="{% static 'images/logo1.png' %}" style="width: 100%"></a>
+      <a href="javascript:void(0);" class="icon" onclick="Function()"><i class="fa fa-bars"></i></a>
+      <button onclick="myFunction()"><i class="fas fa-adjust"></i></button>
+      {% if user.is_authenticated %}
+      <a href="/user/profile">Sign In/Up</a>
+      {% else %}
+      <a href="/login">Sign In/Up</a>
+      {% endif %}
+      {% if user.is_authenticated %}
+      <a href="/create">Create Blog</a>
+      {% else %}
+       <a href="/login">Create Blog</a>
+      <a href="/about">About Us</a>
+      {% endif %}
+      <a href="/">Home</a>
+      <form class="example" action="/action_page.php">
+        <input type="text" placeholder="Search for blog..." name="search bar">
+        <button type="submit"><i class="fa fa-search"></i></button>
+      </form>
+    </div>
+      <!--=========cards===============-->
+      <div class="row">
+        <div class="leftcolumn">
+
+          <!-- ===========feedback=============== -->
+          <div class="container">
+          <h1>Feedback Form</h1>
+          <p>We would love to hear your thoughts, suggestions, concerns or problems with anything so we can improve!</p>
+            <form action="/contact/" method="post">
+              {% csrf_token %}
+              <div class="row2">
+                <div class="col-25">
+                  <label for="FeedbackType">Feedback Type</label>
+                </div>
+                <div class="col-75">
+                  <select id="FeedbackType" name="FeedbackType">
+                    <option value="Comments">Comments</option>
+                    <option value="Suggestions">Suggestions</option>
+                    <option value="Questions">Questions</option>
+                  </select>
+                </div>
+              </div>
+              <div class="row2">
+                <div class="col-25">
+                  <label for="fname">First Name</label>
+                </div>
+                <div class="col-75">
+                  <input type="text" id="fname" name="firstname" placeholder="Your name..">
+                </div>
+              </div>
+              <div class="row2">
+                <div class="col-25">
+                  <label for="lname">Last Name</label>
+                </div>
+                <div class="col-75">
+                  <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+                </div>
+              </div>
+              <div class="row2">
+                <div class="col-25">
+                  <label for="email">E-mail</label>
+                </div>
+                <div class="col-75">
+                  <input type="email" id="email" name="email" placeholder="ex: myname@example.com">
+                </div>
+              </div>
+              <div class="row2">
+                <div class="col-25">
+                  <label for="subject">Describe Your Feedback:</label>
+                </div>
+                <div class="col-75">
+                  <textarea id="subject" name="subject" placeholder="Write something.." style="height:100px"></textarea>
+                </div>
+              </div>
+              <div class="row2">
+                <input type="submit" value="Submit">
+              </div>
+            </form>
+          </div>
+          <!-- ==============FAQ================ -->
+          <div class="container2">
+            <h2>Frequently Asked Questions</h2>
+ 
+            <div class="accordion">
+              <div class="accordion-item">
+                <a>Question 1?</a>
+                <div class="content">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elementum sagittis vitae et leo duis ut. Ut tortor pretium viverra suspendisse potenti.</p>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <a>Question 2?</a>
+                <div class="content">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elementum sagittis vitae et leo duis ut. Ut tortor pretium viverra suspendisse potenti.</p>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <a>Question 3?</a>
+                <div class="content">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elementum sagittis vitae et leo duis ut. Ut tortor pretium viverra suspendisse potenti.</p>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <a>Question 4?</a>
+                <div class="content">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elementum sagittis vitae et leo duis ut. Ut tortor pretium viverra suspendisse potenti.</p>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <a>Question 5?</a>
+                <div class="content">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elementum sagittis vitae et leo duis ut. Ut tortor pretium viverra suspendisse potenti.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <!--===========footer===============  -->
+    <div class="footer" >
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      <a href="#"><i class="fas fa-at"></i></a>
+      <a href="#"><i class="fab fa-whatsapp"></i></a>
+      <h5>&copy; <script>document.write(new Date().getFullYear())</script> blogsite, Inc. All rights reserved.</h5>
+    </div>
+
+    <script src="{% static 'js/contact_us_script.js' %}"></script>
+    <!-- ========got to top============= -->
+    <a class="gotopbtn" href="#"> <i class="fas fa-arrow-up"></i> </a>
+  </body>
+</html>

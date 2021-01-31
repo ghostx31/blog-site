@@ -1,0 +1,260 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- ==== Linked CSS ==== -->
+    <link rel="stylesheet" href="{% static 'styles/styling.css' %}">
+
+    <!-- ==== jquery link ==== -->
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+
+    <!-- ==== Font Awesome 5 LINK ==== -->
+    <script src="https://kit.fontawesome.com/287d476af5.js" crossorigin="anonymous"></script>
+    <title>User Profile</title>
+</head>
+<body>
+    <div class="container">
+
+        <header>
+            <div class="logo">
+               <a href="#"><img src="{% static 'images/logo.png' %}" alt="Website Logo"></a>
+            </div>
+
+            <!-- === when in mobile view this logo will be seen === -->
+            <div class="mobile-logo">
+                <a href="#"><img src="{% static 'images/short logo.png' %}" alt=""></a>
+            </div>
+
+            <div class="bars">
+                <span><i class="fas fa-bars"></i></span>
+            </div>
+
+            <div class="nav">
+                <ul>
+                    <li>
+                       <h3><a href="/about/">About</a></h3>
+                    </li>
+
+                    <li>
+                        <h3><a href="/contact/">Contact</a></h3>
+                    </li>
+                    <l1><a href="/user/logout/">Logout</a></l1>
+                    <li class="active">
+                        <h3><a href="#">Profile</a></h3>
+                    </li>
+                </ul>
+            </div>
+        </header>
+
+        <!-- === Nav for mobile === -->
+        <div class="nav-mobile">
+            <ul>
+                <li>
+                    <span><i class="far fa-address-card"></i></span>
+                   <h3><a href="#">About</a></h3>
+                </li>
+
+                <li>
+                    <span><i class="fas fa-phone-alt"></i></span>
+                    <h3><a href="#">Contact</a></h3>
+                </li>
+
+                <li class="active">
+                    <span><i class="fas fa-user"></i></span>
+                    <h3><a href="#">Profile</a></h3>
+                </li>
+            </ul>
+        </div>
+        
+        <!-- === Side Slide Bar === -->
+        <div class="m-bar">
+           <span><i class="fas fa-ellipsis-v"></i></span>
+        </div>
+        <div class="container_2">
+            <aside class="sidebar">
+               <h1>Sidebar<span class="close"><i class="fas fa-times"></i></span></h1>
+               <div class="user-side">
+                   <div class="user-pic">
+                       <img width="80" src="{% static 'images/user.png' %}" alt="user-profile-pic">
+                   </div>
+                   <div class="user-info">
+                        <span class="name">user8091</span>
+                        <span class="mail">user8091@gmail.com</span>
+                        <span class="status">Online</span>
+                   </div>
+               </div>
+
+               <div class="side-nav">
+                   <h2>General</h2>
+                    <nav>
+                        <ul>
+                            <li class="active" onclick="show(0)">
+                                <span><i class="fas fa-user"></i></span>
+                                <h3>User Profile</h3>
+                            </li>
+
+                            <li onclick="show(1)">
+                                <span><i class="fab fa-blogger-b"></i></span>
+                                <h3>My BLOGS</h3>
+                            </li>
+
+                            <li onclick="show(2)">
+                                <span><i class="fas fa-heart"></i></span>
+                                <h3>Favourite</h3>
+                            </li>
+                             
+                            <li onclick="show(3)">
+                                <span><i class="fas fa-plus"></i></span>
+                                <h3>Create</h3>
+                            </li>
+                        </ul>
+                    </nav>
+               </div>
+            </aside>
+   
+            <div class="main">
+
+                <!-- === user profile === -->
+                <section class="profile tabs">
+                    <div class="profile">
+                        <!-- === USERNAME FORM === -->
+                        <form action="#" class="user_name">
+                            <div class="top">
+                                <!-- === USER PROFILE PIC AND EDIT BUTTON === -->
+                                <button class="btn"><i class="far fa-edit"></i></button>
+
+                                <div class="user_img">
+                                    <img src="{% static 'img/user.png' %}" alt="user image">
+                                </div>
+
+                                <!-- === USER NAME AND EDIT === -->
+                                <div class="user">
+                                    <input type="text" class="name_2" placeholder="USER8091">
+
+                                    <div class="edit_name-button">
+                                        <button class="btn_2"><i class="far fa-edit"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bottom">
+                                <!-- ==== SOCIAL MEDIA ==== -->
+                                <div class="user_socialmedia">
+                                    <a href="#"><i class="fab fa-instagram"></i></a>
+                                    <a href="#"><i class="fab fa-twitter"></i></a>
+                                    <a href="#"><i class="fab fa-facebook"></i></a>
+                                </div>
+
+                                <!-- ==== BLOG INFO ==== -->
+                                <div class="blogs">3 <span>Blogs</span></div>
+                                <div class="border"></div>
+                                <div class="followers">2k <span>Followers</span></div>
+                                <div class="border"></div>
+                                <div class="following">43 <span>Following</span></div>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+
+                <!-- === my blogs === -->
+                <section class="tabs">
+
+                    <div class="userpost">
+                        <!-- POST 1 -->
+                        <div class="post">
+                            <div class="post_img">
+                               <img src="{% static 'images/25630.jpg' %}" alt="Green tea">
+                            </div>
+
+                            <div class="post_text">
+                                <span>4 days ago</span>
+                                <h2>Green Tea</h2>
+                                <p>Green tea is a type of tea that is made from Camellia sinensis leaves and buds and it is good for mind.</p>
+                                <a href="#">More...</a>
+                            </div>
+              
+                        </div>
+
+                        <!-- POST 2 -->
+                        <div class="post">
+                            <div class="post_img">
+                               <img src="{% static 'images/south africa.jpg' %}" height="200" alt="cape town beach">
+                            </div>
+
+                            <div class="post_text">
+                                <span>1 month ago</span>
+                                <h2>Beauty of S.Africa</h2>
+                                <p>South Africa, renowned for its great natural beauty, thats why it is a favourate destination of travelers</p>
+                                <a href="#">More...</a>
+                            </div>
+                   
+                        </div>
+                        <!-- POST 3 -->
+                        <div class="post">
+                            <div class="post_img">
+                               <img src="{% static 'images/1876.jpg' %}" height="200" alt="space">
+                            </div>
+
+                            <div class="post_text">
+                                <span>1 year ago</span>
+                                <h2>Space Explorer</h2>
+                                <p>The Space Explorer game where you can explore the planets, asteroids, and galaxy by clicking on them.</p>
+                                <a href="#">More...</a>
+                            </div>
+                     
+                        </div>   
+                    </div>
+                </section>
+
+                <!-- === favourite === -->
+                <section class="tabs">
+
+                    <div class="likeblogs">
+
+                         <!-- POST 1 -->
+                         <div class="post">
+                            <div class="post_img">
+                               <img src="{% static 'images/south africa.jpg' %}" height="200" alt="cape town beach">
+                            </div>
+
+                            <div class="post_text">
+                                <span>1 month ago</span>
+                                <h2>Beauty of S.Africa</h2>
+                                <p>South Africa, renowned for its great natural beauty, thats why it is a favourate destination of travelers</p>
+                                <a href="#">More...</a>
+                            </div>
+                 
+                        </div>
+
+                        <!-- POST 2 -->
+                        <div class="post">
+                            <div class="post_img">
+                               <img src="{% static 'images/1876.jpg' %}" height="200" alt="space">
+                            </div>
+
+                            <div class="post_text">
+                                <span>1 year ago</span>
+                                <h2>Space Explorer</h2>
+                                <p>The Space Explorer game where you can explore the planets, asteroids, and galaxy by clicking on them.</p>
+                                <a href="#">More...</a>
+                            </div>
+             
+                        </div>   
+                    </div>
+                </section>
+
+
+<!-- ========================== CREATE BLOG ============================ -->
+                <section class="tabs">
+                    <div class="create">
+                        <h1>create your blog</h1>
+                    </div>
+                </section>
+            </div>
+        </div> 
+    </div>
+    <!-- ==== js ==== -->
+    <script src="{% static 'styles/coolness.js' %}"></script>
+</body>
+</html>
