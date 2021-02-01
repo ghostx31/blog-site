@@ -46,8 +46,8 @@
                   </div>
                 </div>
           </div>
+          <form method="post" action="#">
           <label for="title">Title</label>
-                   <form method="post" action="#">
                      {% csrf_token %}
                     <input type="text" id="title" name="title" placeholder="Write title of the blog">
           <textarea name="editor" ></textarea>

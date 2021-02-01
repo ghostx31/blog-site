@@ -42,7 +42,7 @@ def create(request):
         topic = request.POST.get('topic')
         print(editor)
         print("Yes")
-        BlogIns = BlogPost(topic=topic, editor=editor)
+        BlogIns = BlogPost(title=title, topic=topic, editor=editor)
         BlogIns.save()
 
     else:
