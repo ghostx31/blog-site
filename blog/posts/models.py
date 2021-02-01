@@ -1,10 +1,7 @@
 from django.db import models
-from ckeditor.fields import RichTextField
+
 # Create your models here.
-class BlogPost(models.Model):
-        #title = models.CharField(max_length=30)
-        editor = RichTextField()
-        tags = models.CharField(max_length=25)
+
 
 
 class UserProfile(models.Model):

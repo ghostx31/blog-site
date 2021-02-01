@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import BlogPost, UserProfile
+from .models import UserProfile
 
 # Create your views here.
 from django.urls import path
@@ -15,17 +15,7 @@ def userFav(request):
     #return render(request, "user.html")
 
 def SubmitBlog(request):
-    if request.method == "POST":
-        #title = request.POST.get('title')
-        editor = request.POST.get('editor')
-        tag = request.POST.get('topic')
 
-        print("Yes")
-        #BlogIns = BlogPost(title=blogTitle, editor=blogBody)
-        #BlogIns.save()
-
-    else:
-        print("No")
 
     return render(request, "user_blog.html")
 

@@ -4,6 +4,7 @@ from django.core.exceptions import ValidationError
 from django.core.validators import validate_email
 from homepage.models import feedbackModel, Uploads
 from django.contrib.auth.models import User
+from .models import BlogPost
 
 from django.contrib import messages
 # Create your views here.
@@ -35,6 +36,17 @@ def contact(request):
     return render(request, 'contactus.html')
 
 def create(request):
+    if request.method == "POST":
+        title = request.POST.get('title')
+        editor = request.POST.get('editor')
+        topic = request.POST.get('topic')
+        print(editor)
+        print("Yes")
+        BlogIns = BlogPost(topic=topic, editor=editor)
+        BlogIns.save()
+
+    else:
+        print("No")
     return render(request, 'create_new.html')
 
 def login(request):
@@ -48,11 +60,11 @@ def search(request):
     return render(request, 'searchpage.html')
     #return HttpResponse("This is a search. ")
 
-def blogs(request):
+'''def blogs(request):
     if request.method == "POST":
         data = request.POST.get("editor")
         blogIns = Uploads(editor=data)
         blogIns.save()
         return render(request, "user_blog.html")
-
+'''
 

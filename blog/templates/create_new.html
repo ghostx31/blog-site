@@ -36,20 +36,23 @@
         <div class="container">
           <h3 style="text-align: center;">Share Your Thoughts Through A Blog</h3>
           <div class="container1">
-            <form name="title" method="post">
+
               <div class="row2">
                  <div class="col-25">
-                    <label for="title">Title</label>
+
                   </div>
                   <div class="col-75">
-                    <input type="text" id="title" name="title" placeholder="Write title of the blog">
+
                   </div>
                 </div>
-            </form>
           </div>
+          <label for="title">Title</label>
+                   <form method="post" action="#">
+                     {% csrf_token %}
+                    <input type="text" id="title" name="title" placeholder="Write title of the blog">
           <textarea name="editor" ></textarea>
-          	<form method="post">
-              {% csrf_token %}
+            <script src="{% static 'plugins/ckeditor/ckeditor.js' %}"></script>
+
           		<div class="row2">
                 <div class="col-25">
                   <label for="topic">Tags</label>
@@ -76,6 +79,7 @@
     <script src="{% static 'js/create_new_script.js' %}"></script>
     <!-- ======================go to top==================== -->
     <a class="gotopbtn" href="#"> <i class="fas fa-arrow-up"></i> </a>
+    <script src="{% static 'ckeditor/ckeditor-init.js' %}"></script>
     <script src="{% static 'plugins/ckeditor/ckeditor.js' %}"></script>
     <script>
       CKEDITOR.replace('editor');
