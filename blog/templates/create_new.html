@@ -18,7 +18,7 @@
       <button onclick="myFunction()"><i class="fas fa-adjust"></i></button>
       <a href="/contact">Contact</a>
       <a href="/about">About Us</a>
-      <form class="example" action="/user/blog" method="post">
+      <form class="example" action="/search/" method="get">
         <input type="text" placeholder="Search for blog..." name="search bar">
         <button type="submit"><i class="fa fa-search"></i></button>
       </form>
@@ -47,6 +47,7 @@
                 </div>
           </div>
           <form method="post" action="#">
+
           <label for="title">Title</label>
                      {% csrf_token %}
                     <input type="text" id="title" name="title" placeholder="Write title of the blog">

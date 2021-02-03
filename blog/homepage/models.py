@@ -1,5 +1,6 @@
 from django.db import models
 from ckeditor.fields import RichTextField
+from django.contrib.auth.models import User
 class feedbackModel(models.Model):
     opt = [
         ("Comments", "Comments"),
@@ -18,6 +19,7 @@ class Uploads(models.Model):
     BlogData = models.TextField()
 
 class BlogPost(models.Model):
+    author = models.ForeignKey(User, default=None, on_delete=models.CASCADE)
     title = models.CharField(max_length=30)
     editor = RichTextField()
     topic = models.CharField(max_length=25)

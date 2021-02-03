@@ -5,6 +5,7 @@ from django.core.validators import validate_email
 from homepage.models import feedbackModel, Uploads
 from django.contrib.auth.models import User
 from .models import BlogPost
+from django.contrib.auth import authenticate, login, logout
 
 from django.contrib import messages
 # Create your views here.
@@ -37,12 +38,15 @@ def contact(request):
 
 def create(request):
     if request.method == "POST":
+
         title = request.POST.get('title')
         editor = request.POST.get('editor')
         topic = request.POST.get('topic')
         print(editor)
         print("Yes")
+
         BlogIns = BlogPost(title=title, topic=topic, editor=editor)
+        BlogIns.author = request.user
         BlogIns.save()
 
     else:
@@ -57,6 +61,8 @@ def profile(request):
 
 
 def search(request):
+    allPosts = BlogPost.objects.all()
+    params = {'allPosts': allPosts}
     return render(request, 'searchpage.html')
     #return HttpResponse("This is a search. ")
 
@@ -66,5 +72,8 @@ def search(request):
         blogIns = Uploads(editor=data)
         blogIns.save()
         return render(request, "user_blog.html")
-'''
 
+
+def UserBlog(request):
+    if request.method =="GET":
+'''

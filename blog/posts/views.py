@@ -1,10 +1,11 @@
 from django.shortcuts import render, redirect
 from .models import UserProfile
-
+from django.contrib.auth.models import User
 # Create your views here.
 from django.urls import path
 
 def userBlogs(request):
+
     return render(request, "user_blog.html")
 
 

@@ -1,10 +1,10 @@
 from django.db import models
-
 # Create your models here.
 
 
 
 class UserProfile(models.Model):
+
     filename = models.FileField(upload_to="UserPics")
     firstname = models.CharField(max_length=35)
     lastname = models.CharField(max_length=35)
