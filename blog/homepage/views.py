@@ -4,6 +4,8 @@ from django.core.exceptions import ValidationError
 from django.core.validators import validate_email
 from homepage.models import feedbackModel, Uploads
 from django.contrib.auth.models import User
+from django.utils import timezone
+
 from .models import BlogPost
 from django.contrib.auth import authenticate, login, logout
 
@@ -42,6 +44,7 @@ def create(request):
         title = request.POST.get('title')
         editor = request.POST.get('editor')
         topic = request.POST.get('topic')
+        time = request.POST.get('time')
         print(editor)
         print("Yes")
 
@@ -66,14 +69,20 @@ def search(request):
     return render(request, 'searchpage.html')
     #return HttpResponse("This is a search. ")
 
-'''def blogs(request):
-    if request.method == "POST":
-        data = request.POST.get("editor")
-        blogIns = Uploads(editor=data)
-        blogIns.save()
-        return render(request, "user_blog.html")
+
+def ViewBlogs(request):
+    if request.user.is_authenticated:
+        print("Yess")
+        user = request.user.username
+        print(user)
+        num_post = BlogPost.objects.filter(author=request.user.id).count()
+        print(num_post)
+        blogs = BlogPost.objects.filter(author=request.user.id)
+
+        print("output", blogs)
 
 
-def UserBlog(request):
-    if request.method =="GET":
-'''
+    print(blogs)
+    return render(request, "user_blog.html", {'blog': blogs, 'user':user })
+
+

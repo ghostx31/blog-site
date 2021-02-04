@@ -3,22 +3,12 @@ from .models import UserProfile
 from django.contrib.auth.models import User
 # Create your views here.
 from django.urls import path
-
-def userBlogs(request):
-
-    return render(request, "user_blog.html")
+from homepage import models
 
 
 def userFav(request):
     return render(request, "user_fav.html")
 
-#def userProf(request):
-    #return render(request, "user.html")
-
-def SubmitBlog(request):
-
-
-    return render(request, "user_blog.html")
 
 
 def UserFirst(request):

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{{ blog.title }}{% endblock %}</title>
+</head>
+<body>
+{% block content %}
+{% for bl in blog %}
+<h3>{{ bl.author }}</h3>
+<h3>{{ bl.title }}</h3>
+{% endfor %}
+
+
+{% endblock %}
+</body>
+</html>

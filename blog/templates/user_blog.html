@@ -12,11 +12,11 @@
     <div id="loading"></div>
     <!-- =================nav bar================== -->
     <div class="navbar" id="myTopnav">
-      <a href="index.html" class="logo"><img src="{% static 'images/logo1.png' %}" style="width: 100%"></a>
+      <a href="/" class="logo"><img src="{% static 'images/logo1.png' %}" style="width: 100%"></a>
       <a href="javascript:void(0);" class="icon" onclick="Function()"><i class="fa fa-bars"></i></a>
       <button onclick="myFunction()"><i class="fas fa-adjust"></i></button>
-      <a href="contactus.html">Contact</a>
-      <a href="aboutus.html">About Us</a>
+      <a href="/contact">Contact</a>
+      <a href="/about"">About Us</a>
       <form class="example" action="#">
         <input type="text" placeholder="Search for blog..." name="search bar">
         <button type="submit"><i class="fa fa-search"></i></button>
@@ -44,97 +44,25 @@
           </div>
       </div>
 
+
       <div class="rightcolumn">
         <div class="card">
           <div class="row2">
             <h3 style="text-align: center;">Your Blogs</h3>
+            {% for bl in blog %}
             <div class="column2 filterDiv english tech">
               <div class="card2">
                 <img src="{% static 'images/2.jpg' %}" alt="Avatar" style="width:100%">
                 <div class="container">
-                  <h4><b>Blog Heading</b></h4>
+                  <h4><b>Blog Heading: {{bl.title }}</b></h4>
                   <p>Some intro of blog</p>
                 </div>
                 <a href="blog.html">Read Full</a>
               </div>
             </div>
+            {% endfor %}
 
-            <div class="column2 filterDiv other math">
-              <div class="card2">
-                <img src="{% static 'images/2.jpg' %}" alt="Avatar" style="width:100%">
-                <div class="container">
-                  <h4><b>Blog Heading</b></h4>
-                  <p>Some intro of blog</p>
-                </div>
-                <a href="blog.html">Read Full</a>
-              </div>
-            </div>
-  
-            <div class="column2 filterDiv english social">
-              <div class="card2">
-                <img src="{% static 'images/2.jpg' %}" alt="Avatar" style="width:100%">
-                <div class="container">
-                  <h4><b>Blog Heading</b></h4>
-                  <p>Some intro of blog</p>
-                </div>
-                <a href="blog.html">Read Full</a>
-              </div>
-            </div>
-  
-            <div class="column2 filterDiv other tech">
-              <div class="card2">
-                <img src="{% static 'images/2.jpg' %}" alt="Avatar" style="width:100%">
-                <div class="container">
-                  <h4><b>Blog Heading</b></h4>
-                  <p>Some intro of blog</p>
-                </div>
-                <a href="blog.html">Read Full</a>
-              </div>
-            </div>
 
-            <div class="column2 filterDiv english math">
-              <div class="card2">
-                <img src="{% static 'images/2.jpg' %}" alt="Avatar" style="width:100%">
-                <div class="container">
-                  <h4><b>Blog Heading</b></h4>
-                  <p>Some intro of blog</p>
-                </div>
-                <a href="blog.html">Read Full</a>
-              </div>
-            </div>
-
-            <div class="column2 filterDiv other social">
-              <div class="card2">
-                <img src="{% static 'images/2.jpg' %}" alt="Avatar" style="width:100%">
-                <div class="container">
-                  <h4><b>Blog Heading</b></h4>
-                  <p>Some intro of blog</p>
-                </div>
-                <a href="blog.html">Read Full</a>
-              </div>
-            </div>
-
-            <div class="column2 filterDiv english tech">
-              <div class="card2">
-                <img src="{% static 'images/2.jpg' %}" alt="Avatar" style="width:100%">
-                <div class="container">
-                  <h4><b>Blog Heading</b></h4>
-                  <p>Some intro of blog</p>
-                </div>
-                <a href="blog.html">Read Full</a>
-              </div>
-            </div>
-
-            <div class="column2 filterDiv other social">
-              <div class="card2">
-                <img src="{% static 'images/2.jpg' %}" alt="Avatar" style="width:100%">
-                <div class="container">
-                  <h4><b>Blog Heading</b></h4>
-                  <p>Some intro of blog</p>
-                </div>
-                <a href="blog.html">Read Full</a>
-              </div>
-            </div>
 
           </div><!-- row2 -->
           <!-- ==================pagination=================== -->
@@ -150,7 +78,7 @@
           </div>
 
         </div>
-      </div>  
+      </div>
     </div>
     <!-- ===============footer====================== -->
     <div class="footer" >
