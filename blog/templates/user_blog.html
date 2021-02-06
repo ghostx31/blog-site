@@ -38,9 +38,6 @@
             <button class="btn" onclick="filterSelection('tech')"> Technology</button>
             <button class="btn" onclick="filterSelection('math')"> Mathematics</button>
             <button class="btn" onclick="filterSelection('social')"> Social Media</button>
-            <h3 style="text-align: center;">Language</h3>
-            <button class="btn" onclick="filterSelection('english')"> English</button>
-            <button class="btn" onclick="filterSelection('other')"> Other Language</button>
           </div>
       </div>
 
@@ -55,9 +52,9 @@
                 <img src="{% static 'images/2.jpg' %}" alt="Avatar" style="width:100%">
                 <div class="container">
                   <h4><b>Blog Heading: {{bl.title }}</b></h4>
-                  <p>Some intro of blog</p>
+                  <p>Some intro of blog: {{ bl.editor | safe | truncatewords:"30" | linebreaks }}</p>
                 </div>
-                <a href="blog.html">Read Full</a>
+                <a class='readmore' href="{% url 'detail' slug=bl.slug %}">Read Full</a>
               </div>
             </div>
             {% endfor %}

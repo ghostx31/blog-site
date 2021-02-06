@@ -43,139 +43,32 @@
   		<div class="rightcolumn">
     		<div class="card">
           <h3>... search found</h3>
+ {% for post in allposts %}
       		<div class="row2">
 
   					<div class="column2 filterDiv english tech">
     					<div class="card2">
                 <img src="{% static 'images/2.jpg' %}" alt="Avatar" style="width:100%">
                 <div class="container">
-                  <h4><b>Blog Heading</b></h4>
+                  <h4><b>Blog Heading: {{ post.title }}</b></h4>
                   <p>Some intro of blog</p>
                 </div>
                 <a href="blog.html">Read Full</a>
     					</div>
+
   					</div>
 
-  					<div class="column2 filterDiv other math">
-    					<div class="card2">
-      					<img src="{% static 'images/2.jpg' %}" alt="Avatar" style="width:100%">
-                <div class="container">
-                  <h4><b>Blog Heading</b></h4>
-                  <p>Some intro of blog</p>
-                </div>
-                <a href="blog.html">Read Full</a>
-    					</div>
-  					</div>
-  
-  					<div class="column2 filterDiv english social">
-    					<div class="card2">
-      					<img src="{% static 'images/2.jpg' %}" alt="Avatar" style="width:100%">
-                <div class="container">
-                  <h4><b>Blog Heading</b></h4>
-                  <p>Some intro of blog</p>
-                </div>
-                <a href="blog.html">Read Full</a>
-    					</div>
-  					</div>
-  
-  					<div class="column2 filterDiv other tech">
-    					<div class="card2">
-      					<img src="{% static 'images/2.jpg' %}" alt="Avatar" style="width:100%">
-                <div class="container">
-                  <h4><b>Blog Heading</b></h4>
-                  <p>Some intro of blog</p>
-                </div>
-                <a href="blog.html">Read Full</a>
-    					</div>
-  					</div>
+{% endfor %}
 
-            <div class="column2 filterDiv english math">
-              <div class="card2">
-                <img src="{% static 'images/2.jpg' %}" alt="Avatar" style="width:100%">
-                <div class="container">
-                  <h4><b>Blog Heading</b></h4>
-                  <p>Some intro of blog</p>
-                </div>
-                <a href="blog.html">Read Full</a>
-              </div>
-            </div>
 
-            <div class="column2 filterDiv other social">
-              <div class="card2">
-                <img src="{% static 'images/2.jpg' %}" alt="Avatar" style="width:100%">
-                <div class="container">
-                  <h4><b>Blog Heading</b></h4>
-                  <p>Some intro of blog</p>
-                </div>
-                <a href="blog.html">Read Full</a>
-              </div>
-            </div>
 
-            <div class="column2 filterDiv english tech">
-              <div class="card2">
-                <img src="{% static 'images/2.jpg' %}" alt="Avatar" style="width:100%">
-                <div class="container">
-                  <h4><b>Blog Heading</b></h4>
-                  <p>Some intro of blog</p>
-                </div>
-                <a href="blog.html">Read Full</a>
-              </div>
-            </div>
 
-            <div class="column2 filterDiv other math">
-              <div class="card2">
-                <img src="{% static 'images/2.jpg' %}" alt="Avatar" style="width:100%">
-                <div class="container">
-                  <h4><b>Blog Heading</b></h4>
-                  <p>Some intro of blog</p>
-                </div>
-                <a href="blog.html">Read Full</a>
-              </div>
-            </div>
 
-            <div class="column2 filterDiv english social">
-              <div class="card2">
-                <img src="{% static 'images/2.jpg' %}" alt="Avatar" style="width:100%">
-                <div class="container">
-                  <h4><b>Blog Heading</b></h4>
-                  <p>Some intro of blog</p>
-                </div>
-                <a href="blog.html">Read Full</a>
-              </div>
-            </div>
 
-            <div class="column2 filterDiv other tech">
-              <div class="card2">
-                <img src="{% static 'images/2.jpg' %}" alt="Avatar" style="width:100%">
-                <div class="container">
-                  <h4><b>Blog Heading</b></h4>
-                  <p>Some intro of blog</p>
-                </div>
-                <a href="blog.html">Read Full</a>
-              </div>
-            </div>
 
-            <div class="column2 filterDiv english math">
-              <div class="card2">
-                <img src="{% static 'images/2.jpg' %}" alt="Avatar" style="width:100%">
-                <div class="container">
-                  <h4><b>Blog Heading</b></h4>
-                  <p>Some intro of blog</p>
-                </div>
-                <a href="blog.html">Read Full</a>
-              </div>
-            </div>
 
-            <div class="column2 filterDiv other social">
-              <div class="card2">
-                <img src="{% static 'images/2.jpg' %}" alt="Avatar" style="width:100%">
-                <div class="container">
-                  <h4><b>Blog Heading</b></h4>
-                  <p>Some intro of blog</p>
-                </div>
-                <a href="blog.html">Read Full</a>
-              </div>
-            </div>
+
+
 
 					</div><!-- row2 -->
           <!-- ==================pagination=================== -->

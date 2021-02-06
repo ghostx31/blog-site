@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from homepage import views
+from search import views
 from django.conf.urls.static import static
 from django.conf import settings
 
@@ -27,6 +28,7 @@ urlpatterns = [
     path('', include('homepage.urls')),
     path('user/', include('posts.urls')),
     path('user/', include("accounts.urls")),
+
     #path('contact/', include('homepage.urls')),
     #path('create/', include('homepage.urls')),
     #path('about/', include('homepage.urls')),

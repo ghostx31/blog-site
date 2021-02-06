@@ -1,8 +1,9 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from django.core.exceptions import ValidationError
 from django.core.validators import validate_email
 from homepage.models import feedbackModel, Uploads
+from django.views.generic import DetailView
 from django.contrib.auth.models import User
 from django.utils import timezone
 
@@ -64,10 +65,14 @@ def profile(request):
 
 
 def search(request):
-    allPosts = BlogPost.objects.all()
-    params = {'allPosts': allPosts}
-    return render(request, 'searchpage.html')
+    query = request.GET['query']
+    #allposts = BlogPost.objects.all()
+    allposts = BlogPost.objects.filter(title__icontains=query)
+
+    params = {'allposts': allposts}
+    return render(request, 'searchpage.html', params)
     #return HttpResponse("This is a search. ")
+
 
 
 def ViewBlogs(request):
@@ -86,3 +91,10 @@ def ViewBlogs(request):
     return render(request, "user_blog.html", {'blog': blogs, 'user':user })
 
 
+def AllBlogs(request, id):
+    blogs = BlogPost.objects.all()
+    return render(request, "index.html", {"blog":blogs})
+
+
+def blog_detail(request, slug):
+    return HttpResponse(slug)
