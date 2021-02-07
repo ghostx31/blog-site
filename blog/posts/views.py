@@ -34,3 +34,4 @@ def UserFirst(request):
 
 def UserNormal(request):
     return render(request, "body.html")
+

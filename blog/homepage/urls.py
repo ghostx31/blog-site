@@ -1,5 +1,6 @@
 from django.urls import path
 from . import views
+from homepage.views import LikeView
 from django.conf.urls import url
 urlpatterns = [
     path('', views.home, name='home-page'),
@@ -11,6 +12,6 @@ urlpatterns = [
     path('search/',  views.search, name='search'),
     path('myblogs/', views.ViewBlogs, name="Views"),
     path('myblogs/<slug:slug>', views.blog_detail, name='detail'),
-
+    path('like/<int:id>', LikeView, name='like_post'),
 
 ]

@@ -16,3 +16,4 @@ class UserProfile(models.Model):
     hobby = models.CharField(max_length=100)
     subject = models.TextField()
 
+

@@ -6,6 +6,7 @@ from homepage.models import feedbackModel, Uploads
 from django.views.generic import DetailView
 from django.contrib.auth.models import User
 from django.utils import timezone
+from django.urls import reverse_lazy, reverse 
 
 from .models import BlogPost
 from django.contrib.auth import authenticate, login, logout
@@ -97,4 +98,17 @@ def AllBlogs(request, id):
 
 
 def blog_detail(request, slug):
-    return HttpResponse(slug)
+    blog = BlogPost.objects.filter(author=request.user.id, slug=slug)
+
+
+    return render(request, "blog.html", {"blog": blog })
+
+
+
+
+
+'''def LikeView(request, id):
+    like = get_object_or_404(BlogPost, id=request.POST.get("blog_like"))
+    like.add(request.user, instance=BlogPost)
+    return HttpResponseRedirect(reverse('blog_detail', args=[str(id)]))
+    '''
