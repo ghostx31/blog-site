@@ -63,7 +63,8 @@ Apps:
         create() - Contains fields for the submission of the blog and saves the blog into the database and is only done if the method of request is POST, meaning when the user presses the submit button to submit the blog. 
         If the method of request is GET, then it renders out the create_new page which contains the necessary tools to write and save a blog.
         login() - Is deprecated and will be removed in further updates.
-        search() - Will link to the page shown with search results. Is complete as of yet and will be updated soon. 
+        search() - Links to the page shown with search results.
+        *likeField() - Adds a like to the post currently being read by the user. Is incomplete. Will be completed soon. 
     urls.py: 
         urls.py has the main links for the main pages:
         '' - links to the main homepage.
