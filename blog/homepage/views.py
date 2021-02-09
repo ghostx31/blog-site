@@ -2,11 +2,12 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from django.core.exceptions import ValidationError
 from django.core.validators import validate_email
-from homepage.models import feedbackModel, Uploads
+from homepage.models import feedbackModel, Uploads, Like
 from django.views.generic import DetailView
 from django.contrib.auth.models import User
 from django.utils import timezone
-from django.urls import reverse_lazy, reverse 
+from django.urls import reverse_lazy, reverse
+
 
 from .models import BlogPost
 from django.contrib.auth import authenticate, login, logout
@@ -97,18 +98,32 @@ def AllBlogs(request, id):
     return render(request, "index.html", {"blog":blogs})
 
 
-def blog_detail(request, slug):
+def blogDetail(request, slug):
     blog = BlogPost.objects.filter(author=request.user.id, slug=slug)
 
 
     return render(request, "blog.html", {"blog": blog })
 
 
+def like_post(request):
+    user = request.user
 
+    if request.method == "POST":
+        post_id =  request.POST.get("post_id")
+        post_obj = BlogPost.objects.get(id=post_id)
 
+        if user in post_obj.liked.all():
+            post_obj.liked.remove(user)
+        else:
+            post_obj.liked.add(user)
 
-'''def LikeView(request, id):
-    like = get_object_or_404(BlogPost, id=request.POST.get("blog_like"))
-    like.add(request.user, instance=BlogPost)
-    return HttpResponseRedirect(reverse('blog_detail', args=[str(id)]))
-    '''
+        like, created = Like.objects.get_or_create(user=user, id=post_id)
+
+        if not created:
+            if like.value == "Like":
+                like.value = "Unlike"
+            else:
+                like.value = "like"
+
+        like.save()
+    return redirect('posts:detail')

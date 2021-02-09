@@ -34,11 +34,14 @@ class BlogPost(models.Model):
     topic = models.CharField(choices=opt, max_length=25, null=True)
     time = models.DateField(auto_now_add=True)
     slug = models.CharField(max_length=130, null=True, blank=True)
-    like = models.ManyToManyField(User, related_name='blog_post')
+    liked = models.ManyToManyField(User, related_name='liked')
 
     def __str__(self):
         return self.title + '|' + str(self.author)
 
+    @property
+    def num_likes(self):
+        return self.liked.all().count()
 def slug_generator(sender, instance, *args, **kwargs):
     if not instance.slug:
         instance.slug = unique_slug_generator(instance)
@@ -47,4 +50,14 @@ pre_save.connect(slug_generator, sender=BlogPost)
 
 
 
+class Like(models.Model):
+    Like_choices = (
+        ("Like", "Like"),
+        ("Unlike", "Unlike")
+    )
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    post = models.ForeignKey(BlogPost, on_delete=models.CASCADE, null=True)
+    value = models.CharField(choices=Like_choices, default="Like", max_length=10, blank=True, null=True)
 
+    def __str__(self):
+        return str(self.post)

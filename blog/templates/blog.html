@@ -50,10 +50,10 @@
           <div class="fakeimg" style="height:200px;">Image</div>
           <p>Some text..</p>
           <p>{{ bl.editor | safe }}</p>
-            <form method="post" action="{% url 'like_post' bl.id %}">
+            <form method="post" action="{% url 'posts:like-post' %}">
                 {% csrf_token %}
           <div class="like-content">
-            <button class="btn-secondary like-review" type="submit" name="blog_like" value="{{ bl.id }}">
+            <button class="btn-secondary like-review" type="submit" name="post_id" value="{{ bl.id }}">
               <i class="fa fa-heart" aria-hidden="true"></i> Like
             </button>
 
