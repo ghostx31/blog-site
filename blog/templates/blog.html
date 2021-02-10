@@ -35,10 +35,11 @@
       </form>
 		</div>
     <!-- ================blog====================== -->
+    {% for bl in blog %}
 		<div class="header">
-      <h2>Blog Name</h2>
+      <h2>Blog Name: {{ bl.title }}</h2>
     </div>
-
+    {% endfor %}
     <div class="row">
       <!-- ===================div on left=================== -->
       <div class="leftcolumn">
@@ -48,7 +49,6 @@
           <h2>TITLE HEADING: {{ bl.title }}</h2>
           <h5>Short description, Date</h5>
           <div class="fakeimg" style="height:200px;">Image</div>
-          <p>Some text..</p>
           <p>{{ bl.editor | safe }}</p>
             <form method="post" action="{% url 'posts:like-post' %}">
                 {% csrf_token %}
@@ -66,22 +66,22 @@
         {% endblock %}
       <!-- ===================div on right================ -->
       <div class="rightcolumn">
-
+        {% for bl in blog %}
         <div class="card">
           <h2>About Me</h2>
           <div class="column2 ">
             <div class="card2">
               <img src="{% static 'images/img_avatar.png' %}" alt="Avatar" >
               <div class="container">
-                <h4><b>Name</b></h4>
-                <p>Some info about that person</p>
+                <h4><b>Name: {{ bl.author }}</b></h4>
               </div>
             </div>
           </div>
+          {% endfor %}
         </div>
 
         <div class="card">
-          <h3>Popular Post</h3>
+          <h3>Popular Posts</h3>
               <div class="column3">
                 <div class="card3">
                   <img src="{% static 'images/2.jpg' %}" alt="Avatar" style="width:100%">

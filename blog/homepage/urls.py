@@ -13,5 +13,6 @@ urlpatterns = [
     path('myblogs/', views.ViewBlogs, name="Views"),
     path('myblogs/<slug:slug>', views.blogDetail, name='detail'),
     path('like/', views.like_post, name='like-post'),
+    path('read/<slug:slug>', views.blogRead, name='read'),
 
 ]

@@ -73,118 +73,26 @@
   			<div class="leftcolumn">
           <!-- ===============popular blog =======================-->
     			<div class="card">
-            <h3>POPULAR BLOG</h3>
+            <h3>POPULAR BLOGS</h3>
+            
       			<div class="row2">
-
+             {% for bl in blog %}
   						<div class="column2">
+             
     						<div class="card2">
                   <img src="{% static 'images/2.jpg' %}" alt="Avatar" style="width:100%">
                   <div class="container">
-                    <h4><b>Blog Heading 1</b></h4>
-                    <p>Some intro of blog</p>
+                    <h4><b> {{ bl.title }}</b></h4>
+                    <p>{{ bl.editor | safe| truncatechars:"30" | linebreaks }}</p>
                   </div>
-                    <a href="blog.html">read full</a>
+                  {% if user.is_authenticated %}
+                    <a class='readmore' href="{% url 'posts:read' slug=bl.slug %}">Read Full</a>
+                    {% else %}
+                      <a class='readmore' href='user/login'>Login to read</a>
+                      {% endif %}
     						</div>
   						</div>
-
-  						<div class="column2">
-    						<div class="card2">
-      						<img src="{% static 'images/2.jpg' %}" alt="Avatar" style="width:100%">
-                  <div class="container">
-                    <h4><b>Blog Heading</b></h4>
-                    <p>Some intro of blog</p>
-                  </div>
-                    <a href="blog.html">read full</a>
-    						</div>
-  						</div>
-  
-  						<div class="column2">
-    						<div class="card2">
-      						<img src="{% static 'images/2.jpg' %}" alt="Avatar" style="width:100%">
-                  <div class="container">
-                    <h4><b>Blog Heading</b></h4>
-                    <p>Some intro of blog</p>
-                  </div>
-                    <a href="blog.html">read full</a>
-    						</div>
-  						</div>
-  
-  						<div class="column2">
-    						<div class="card2">
-      						<img src="{% static 'images/2.jpg' %}" alt="Avatar" style="width:100%">
-                  <div class="container">
-                    <h4><b>Blog Heading</b></h4>
-                    <p>Some intro of blog</p>
-                  </div>
-                    <a href="blog.html">read full</a>
-    						</div>
-  						</div>
-
-            </div>
-
-            <div class="viewmore">
-              <a href="popular page.html">View All > </a>
-            </div>
-
-    			</div>
-
-          <!-- ===================trending blog================== -->
-    			<div class="card">
-            <h3>TRENDING BLOG</h3>
-      			<div class="row2">
-
-  						<div class="column2">
-    						<div class="card2">
-      						<img src="{% static 'images/2.jpg' %}" alt="Avatar" style="width:100%">
-                  <div class="container">
-                    <h4><b>Blog Heading</b></h4>
-                    <p>Some intro of blog</p>
-                  </div>
-                    <a href="blog.html">read full</a>
-    						</div>
-  						</div>
-
-  						<div class="column2">
-    						<div class="card2">
-      						<img src="{% static 'images/2.jpg' %}" alt="Avatar" style="width:100%">
-                  <div class="container">
-                    <h4><b>Blog Heading</b></h4>
-                    <p>Some intro of blog</p>
-                  </div>
-                    <a href="blog.html">read full</a>
-    						</div>
-  						</div>
-  						
-              <div class="column2">
-    						<div class="card2">
-      						<img src="{% static 'images/2.jpg' %}" alt="Avatar" style="width:100%">
-                  <div class="container">
-                    <h4><b>Blog Heading</b></h4>
-                    <p>Some intro of blog</p>
-                  </div>
-                    <a href="blog.html">read full</a>
-    						</div>
-  						</div>
-  						
-              <div class="column2">
-    						<div class="card2">
-      						<img src="{% static 'images/2.jpg' %}" alt="Avatar" style="width:100%">
-                  <div class="container">
-                    <h4><b>Blog Heading</b></h4>
-                    <p>Some intro of blog</p>
-                  </div>
-                    <a href="blog.html">read full</a>
-    						</div>
-  						</div>
-
-            </div>
-
-            <div class="viewmore">
-              <a href="trending page.html">View All > </a>
-            </div>
-
-    			</div>
-
+                        {% endfor%}
   			</div>
 
   	  </div>

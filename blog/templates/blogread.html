@@ -1,0 +1,134 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+    <script src="https://kit.fontawesome.com/21f148cdb3.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="{% static 'styles/blog_style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Blog</title>
+	</head>
+	<body onload="loadingfunction()">
+    <div id="loading"></div>
+    <!-- =============navbar=================== -->
+		<div class="navbar" id="myTopnav">
+      <a href="/" class="logo"><img src="{% static 'images/logo1.png' %}" style="width: 100%"></a>
+      <a href="javascript:void(0);" class="icon" onclick="Function()"><i class="fa fa-bars"></i></a>
+			<button onclick="myFunction()"><i class="fas fa-adjust"></i></button>
+          {% if user.is_authenticated %}
+          <a href="user/profile">Hello, {{ user.first_name }}</a>
+          <a href="user/logout">Logout</a>
+          {% else %}
+  		<a href="user/login">Sign In/Up</a>
+          {% endif %}
+          {% if user..is_authenticated %}
+          <a href="/create">Create Blog</a>
+          {% else %}
+      <a href="user/login">Create Blog</a>
+          {% endif %}
+      <a href="/contact">Contact</a>
+  		<a href="/about">About Us</a>
+      <form class="example" action="#">
+        <input type="text" placeholder="Search for blog..." name="query" id="query">
+        <button type="submit"><i class="fa fa-search"></i></button>
+      </form>
+		</div>
+    <!-- ================blog====================== -->
+
+		<div class="header">
+      <h2>Blog Name: {{ blog.title }}</h2>
+    </div>
+    
+    <div class="row">
+      <!-- ===================div on left=================== -->
+      <div class="leftcolumn">
+          {% block content %}
+         
+        <div class="card">
+          <h2>TITLE HEADING: {{ bl.title }}</h2>
+          <h5>Short description, Date</h5>
+          <div class="fakeimg" style="height:200px;">Image</div>
+          <p>{{ blog.editor | safe }}</p>
+            <form method="post" action="{% url 'posts:like-post' %}">
+                {% csrf_token %}
+          <div class="like-content">
+            <button class="btn-secondary like-review" type="submit" name="post_id" value="{{ blog.id }}">
+              <i class="fa fa-heart" aria-hidden="true"></i> Like
+            </button>
+
+          </div>
+                 </form>
+        </div>
+
+      </div>
+       
+        {% endblock %}
+      <!-- ===================div on right================ -->
+      <div class="rightcolumn">
+       
+        <div class="card">
+          <h2>About Me</h2>
+          <div class="column2 ">
+            <div class="card2">
+              <img src="{% static 'images/img_avatar.png' %}" alt="Avatar" >
+              <div class="container">
+                <h4><b>Name: {{ blog.author }}</b></h4>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Popular Posts</h3>
+              <div class="column3">
+                <div class="card3">
+                  <img src="{% static 'images/2.jpg' %}" alt="Avatar" style="width:100%">
+                  <div class="container3">
+                    <h4><b>Blog Heading 1</b></h4>
+                    <p>Some intro of blog</p>
+                  </div>
+                    <a href="blog.html">read full</a>
+                </div>
+              </div>
+              <div class="column3">
+                <div class="card3">
+                  <img src="{% static 'images/2.jpg' %}" alt="Avatar" style="width:100%">
+                  <div class="container3">
+                    <h4><b>Blog Heading 1</b></h4>
+                    <p>Some intro of blog</p>
+                  </div>
+                    <a href="blog.html">read full</a>
+                </div>
+              </div>
+        </div>
+
+        <div class="card">
+          <h3>Follow Me</h3>
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fas fa-at"></i></a>
+          <a href="#"><i class="fab fa-whatsapp"></i></a>
+        </div>
+
+      </div>
+
+    </div>
+    <!-- ==========footer================== -->
+		<div class="footer" >
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      <a href="#"><i class="fas fa-at"></i></a>
+      <a href="#"><i class="fab fa-whatsapp"></i></a>
+  		<h5>&copy; <script>document.write(new Date().getFullYear())</script> blogsite, Inc. All rights reserved.</h5>
+		</div>
+
+		<script src="{% static 'js/blog_script.js' %}"></script>
+    <!-- ===========back to top=============== -->
+    <a class="gotopbtn" href="#"> <i class="fas fa-arrow-up"></i> </a>
+	</body>
+</html>
