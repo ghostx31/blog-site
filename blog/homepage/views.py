@@ -15,7 +15,10 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 # Create your views here.
 def home(request):
-    return render(request, "index.html")
+    blogs = BlogPost.objects.all()
+    print(blogs)
+    return render(request, "index.html", {"blog":blogs})
+   
 
 def aboutus(request):
     return render(request, 'aboutus.html')
@@ -93,14 +96,10 @@ def ViewBlogs(request):
     return render(request, "user_blog.html", {'blog': blogs, 'user':user })
 
 
-def AllBlogs(request, id):
-    blogs = BlogPost.objects.all()
-    return render(request, "index.html", {"blog":blogs})
 
 
 def blogDetail(request, slug):
     blog = BlogPost.objects.filter(author=request.user.id, slug=slug)
-
 
     return render(request, "blog.html", {"blog": blog })
 
@@ -126,4 +125,11 @@ def like_post(request):
                 like.value = "like"
 
         like.save()
-    return redirect('posts:detail')
+    return redirect('posts:Views')
+
+
+
+def blogRead(request, slug):
+    blog = BlogPost.objects.get(slug=slug)
+
+    return render(request, "blogread.html", {"blog": blog })
