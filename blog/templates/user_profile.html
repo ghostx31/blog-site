@@ -1,0 +1,98 @@
+{% load static  %}  
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://kit.fontawesome.com/21f148cdb3.js" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/user_profile_style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>User Profile updated</title>
+  </head>
+  <body onload="loadingfunction()">
+    <div id="loading"></div>
+    <!-- =================nav bar================== -->
+    <div class="navbar" id="myTopnav">
+      <a href="/" class="logo"><img src="{% static 'images/logo1.png' %}" style="width: 100%"></a>
+      <a href="javascript:void(0);" class="icon" onclick="Function()"><i class="fa fa-bars"></i></a>
+      <button onclick="myFunction()"><i class="fas fa-adjust"></i></button>
+      <a href="/contact">Contact</a>
+      <a href="/about">About Us</a>
+      <form class="example" action="#">
+        <input type="text" placeholder="Search for blog..." name="search bar">
+        <button type="submit"><i class="fa fa-search"></i></button>
+      </form>
+    </div>
+    <!-- ====================card========================= -->
+    <div class="row">
+
+      <div class="filterleftside">
+        <div>
+          <a class="btn active1"> Profile</a>
+          <a class="btn" href="/myblogs"> My Blogs</a>
+          <a class="btn" href="/user/favourites"> Favourites</a>
+        </div>
+      </div>
+      <div class="leftcolumn">
+          <div class="container">
+            <div class="image">
+              <img src="{{ data.image }}">
+            </div>
+            <div class="name">
+              <h3>Name</h3>
+              
+              <p>{{ data.firstname }}</p>
+             
+            </div>
+            <div class="name">
+              <h3>E-mail</h3>
+              <p>{{ data.email }}</p>
+            </div>
+            <div class="name">
+              <h3>Linked In</h3>
+              <p>{{ data.linkedin }}</p>
+            </div>
+            <div class="name">
+              <h3>Instgram account</h3>
+              <p>{{ data.instagram }}</p>
+            </div>
+            <div class="name">
+              <h3>Twitter Handle</h3>
+              <p>{{ data.twitter }}</p>
+            </div>
+            <div class="name">
+              <h3>Facebook</h3>
+              <p>{{ data.facebook }}</p>
+            </div>
+            <div class="name">
+              <h3>Hobby</h3>
+              <p>{{ data.hobby }}</p>
+            </div>
+          
+          </div>
+            <form action="/user/edit">
+              <div class="row2">
+                <input type="submit" value="Edit">
+              </div>
+            </form>
+        </div>
+    </div>
+    <!-- ===============footer====================== -->
+    <div class="footer" >
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      <a href="#"><i class="fas fa-at"></i></a>
+      <a href="#"><i class="fab fa-whatsapp"></i></a>
+      <h5>&copy; <script>document.write(new Date().getFullYear())</script> blogsite, Inc. All rights reserved.</h5>
+    </div>
+
+    <script src="{% static 'js/user_profile_script.js' %}"></script>
+    <!-- ======================go to top==================== -->
+    <a class="gotopbtn" href="#"> <i class="fas fa-arrow-up"></i> </a>
+    <div class="createnew">
+      <a href="/create"> <i class="fas fa-plus"></i> </a>
+      <span class="tooltiptext">Create New</span>
+    </div>
+  </body>
+</html>

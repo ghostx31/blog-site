@@ -29,13 +29,9 @@ urlpatterns = [
     path('user/', include('posts.urls')),
     path('user/', include("accounts.urls")),
 
-    #path('contact/', include('homepage.urls')),
-    #path('create/', include('homepage.urls')),
-    #path('about/', include('homepage.urls')),
-    #path('login/', include('homepage.urls')),
-    #path('create/', include('data.urls')),
-    #path('profile/', include('homepage.urls')),
-    #path(r'^search', include('search.urls', namespace='search')),
+
     path('admin/', admin.site.urls),
 ]
 urlpatterns = urlpatterns + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+

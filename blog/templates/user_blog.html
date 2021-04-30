@@ -35,9 +35,17 @@
           <div id="myBtnContainer">
             <button class="btn active" onclick="filterSelection('all')"> Show all</button>
             <h3 style="text-align: center;">Topic</h3>
-            <button class="btn" onclick="filterSelection('tech')"> Technology</button>
+              {% for cat in cat %}
+              {% if cat.topic == "Technology" %}
+            <button class="btn" onclick="filterSelection('tech')"> Technology </button>
+            {% endif %}
+            {% if cat.topic == "Mathematics" %}
             <button class="btn" onclick="filterSelection('math')"> Mathematics</button>
+            {% endif %}
+            {% if cat.topic == "Social Media" %}
             <button class="btn" onclick="filterSelection('social')"> Social Media</button>
+            {% endif %}
+            {% endfor %}
           </div>
       </div>
 

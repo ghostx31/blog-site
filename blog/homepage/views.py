@@ -7,6 +7,7 @@ from django.views.generic import DetailView
 from django.contrib.auth.models import User
 from django.utils import timezone
 from django.urls import reverse_lazy, reverse
+from posts.models import UserProfile
 
 
 from .models import BlogPost
@@ -21,7 +22,10 @@ def home(request):
    
 
 def aboutus(request):
-    return render(request, 'aboutus.html')
+    user = User.objects.all()
+    print(user)
+   
+    return render(request, 'aboutus.html', {"user" : user })
 
 def contact(request):
     if request.method == "POST":
@@ -44,6 +48,7 @@ def contact(request):
         print("No")
     return render(request, 'contactus.html')
 
+
 def create(request):
     if request.method == "POST":
 
@@ -62,11 +67,7 @@ def create(request):
         print("No")
     return render(request, 'create_new.html')
 
-def login(request):
 
-    return render(request, 'log-in-up.html')
-def profile(request):
-    return render(request, "user.html")
 
 
 def search(request):
@@ -90,6 +91,7 @@ def ViewBlogs(request):
         blogs = BlogPost.objects.filter(author=request.user.id)
 
         print("output", blogs)
+        #cat = BlogPost.objects.filter(id=request.user.id)
 
 
     print(blogs)
