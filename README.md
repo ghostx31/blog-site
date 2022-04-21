@@ -3,7 +3,7 @@ Readme file for blog-site:
 
 IMPORTANT!!
 To source local files, use `{% static '/path/to/file/' %}` in the html pages. 
-At top of every html file, add {% load static %}
+At top of every html file, add `{% load static %}`
 While naming any file, do not use space.
 
 In settings.py, all the app names are self-explanatory.
