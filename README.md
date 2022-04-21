@@ -2,11 +2,12 @@
 Readme file for blog-site:
 
 IMPORTANT!!
-To source local files, use '''{% static '/path/to/file/' %}''' in the html pages. 
+To source local files, use `{% static '/path/to/file/' %}` in the html pages. 
 At top of every html file, add {% load static %}
 While naming any file, do not use space.
 
 In settings.py, all the app names are self-explanatory.
+```
 ''' STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
@@ -15,9 +16,10 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 ''' 
+```
 This part tells django where to get and store user related images. 
 
-
+```
 ''' SITE_ID = 1
 ####################################
     ##  CKEDITOR CONFIGURATION ##
@@ -36,7 +38,8 @@ CKEDITOR_CONFIGS = {
 
 ###################################
 '''
-This contains the script to user CKEDITOR whhich is a WSIWYG editor used in the '''create_new page''' to write blogs which will be discussed further. 
+```
+This contains the script to user CKEDITOR which is a WSIWYG editor used in the `create_new page` to write blogs which will be discussed further. 
 
 This README file will be updated on every update and new additions will be marked with * in front of them. 
 
